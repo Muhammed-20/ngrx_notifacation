@@ -1,0 +1,31 @@
+<div class="col-md-4">
+    <div style="width: 100%; height: 70vh;" class=" d-flex justify-content-center align-items-center">
+      <div class="d-flex flex-column justify-content-center" style="width: 500px;">
+        <span class="fs-5 mb-4" translate>makeanappointment</span>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label translate>Polyclinic</mat-label>
+          <input type="text" placeholder="Poliklinik giriniz." matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label translate>Doctors</mat-label>
+          <mat-select [(ngModel)]="selectedValue">
+            <mat-option *ngFor="let food of foods" [value]="food">
+              {{food}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          
+          <mat-label translate>Date</mat-label>
+          <input matInput type="date" [(ngModel)]="dateControl">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="getir()">submit</button>
+      </div>
+    </div>
+  </div>

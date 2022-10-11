@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="notifi-box d-flex flex-column  align-items-center" >
+  <span class="mt-2 text-muted">Randevu Bilgilerim</span>
+  <table class="table mt-2 ">
+      <thead class="" >
+          <th>polyclinic</th>
+          <th >Doctor</th>
+          <th >Date</th>
+          <th style="text-align: center;">location</th>
+          <th style="text-align: center;">photo</th>
+      </thead>
+      <tr *ngFor="let item of appointment">
+          <td>{{item.pol}}</td>
+          <td>{{item.doc}}</td>
+          <td>{{item.date | date:'shortDate'}}</td>
+          <td style="text-align: center;">
+              
+          </td>
+          <td style="text-align: center;"><img width="100" >
+            </td>
+      </tr>
+  </table>
+</div>
+<app-form-appo></app-form-appo>

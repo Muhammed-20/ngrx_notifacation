@@ -1,0 +1,32 @@
+<mat-toolbar style="background: #7DCEA0; height: 70px;">
+    <mat-toolbar-row class="d-flex align-items-center  justify-content-between">
+        <div>
+            <img width="70"  alt="">
+            <button  mat-icon-button matTooltip="Menü">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="">
+            <span class="mx-3" translate>about</span>
+            <span class="mx-3" translate>services</span>
+
+
+        </div>
+        <div class=''>
+            <button   mat-icon-button
+                matTooltip="notifications">
+                <mat-icon [matBadge]="badgeContent" matBadgeSize="small">
+                    notifications
+                </mat-icon>
+            </button>
+            <button matTooltip="Profile"
+                mat-icon-button>
+                <mat-icon>person_2</mat-icon>
+            </button>
+            <button  mat-icon-button matTooltip="LOG OUT">
+                <mat-icon>logout</mat-icon>
+            </button>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
