@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { ActionReducer, Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
 import { ApState } from '../+state/ap.model';
 import { LocalService} from '../services/storeLocalStorage.service';
+import { Model } from '../app.model';
+import { selectAllTodos } from '../+state/select';
 
 
 
@@ -14,18 +17,19 @@ import { LocalService} from '../services/storeLocalStorage.service';
 })
 export class NotificationComponent implements OnInit {
 data: any;
-public appointment:Array<any> = []
-  constructor(private store$: Store<ApState>,private SubmitService:LocalService) { }
+
+public appointment:any
+  
+  constructor(private store$: Store,private localService:LocalService) {
+   
+   }
   ngOnInit(): void {
      this.getStore() 
-
-   
   }
   public getStore() {
-    this.store$.subscribe((res) => {
-      this.data = res;
-      
-    this.appointment =  this.data.content.appointment;
+    this.store$.subscribe(res => {
+     this.data=res;
+     this.appointment = this.data.appointment.appointment
     })
   } 
 }

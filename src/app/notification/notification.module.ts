@@ -10,7 +10,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule} from '@angular/material/button';
-import { StoreModule} from '@ngrx/store'
+import { MetaReducer, META_REDUCERS, StoreModule} from '@ngrx/store'
 import { HeaderComponent } from '../header/header.component';
 import { MatToolbarModule} from '@angular/material/toolbar'
 import { MatBadgeModule} from '@angular/material/badge'
@@ -21,10 +21,7 @@ import { FormAppoComponent } from '../form-appo/form-appo.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from '../+state/effect';
 import { LocalService } from '../services/storeLocalStorage.service';
-
-
-
-
+import { metaReducers, reducers} from '../+hydration/index'
 
 
 
@@ -41,12 +38,6 @@ import { LocalService } from '../services/storeLocalStorage.service';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    StoreModule.forRoot({ todos:todoReducer}),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
-    EffectsModule.forRoot([TodoEffects]),
     MatToolbarModule,
     MatBadgeModule
     

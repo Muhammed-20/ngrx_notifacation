@@ -1,5 +1,6 @@
 
 import { createReducer, on} from '@ngrx/store'
+import { createRehydrateReducer } from 'ngrx-rehydrate';
 import { Model } from '../app.model';
 import { submit } from './action';
 
@@ -15,10 +16,11 @@ export const initialState: TodoState = {
  
 };
 
-export const todoReducer = createReducer(
+ export const todoReducer =  createReducer(
     initialState,
     on(submit, (state,{pol,doc,date}) => ({
       ...state,
       appointment: [...state.appointment,{pol:pol,doc:doc,date:date}]  
     })),
-  );
+  );  
+

@@ -21,7 +21,7 @@ export class FormAppoComponent implements OnInit {
   public filteredOptions!: Observable<string[]>;
   public selectedValue!: any;
   public foods: Array<any> = [];
-  constructor( private store: Store,private PoliklinikService:PoliklinikService,private DoctorService:DoctorService,private SubmitService:LocalService) {}
+  constructor( private store: Store,private PoliklinikService:PoliklinikService,private DoctorService:DoctorService,private localService:LocalService) {}
   
  
   ngOnInit(): void {

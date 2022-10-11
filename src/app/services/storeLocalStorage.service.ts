@@ -10,9 +10,12 @@ export const TODO_LOCALSTORAGE_KEY = 'appointment';
 export class LocalService {
 
   constructor(private store$: Store) { }
- 
-  setSavedState(state:any,localStorageKey:string) {
-    
+
+  public setSavedState(state: any, localStorageKey: string) {
+    localStorage.setItem(localStorageKey, JSON.stringify(state));
   }
 
+  public getSavedState(localStorageKey: string) {
+    return JSON.parse(localStorage.getItem(localStorageKey)!);
+  }
 }
